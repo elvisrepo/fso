@@ -1,28 +1,26 @@
-import { useState } from "react"
-const Display = props => <div>{props.value}</div>
+import Note from './components/Note'
 
-const Button = (props) => (
-  <button onClick={props.onClick}>
-    {props.text}
-  </button>
-)
 
-const App = () => {
-  const [value, setValue] = useState(10)
+const App = (props) => {
+  const { notes } = props
 
-  const setToValue = (newValue) => {
-    console.log('value now', newValue)
-    setValue(newValue)
-  }
+  // {
+  //       id: 1,
+  //       content: 'HTML is easy',
+  //       important: true
+  //   }
+
   return (
     <div>
-      <Display value={value} />
-      <Button onClick={() => setToValue(1000)} text="thousand" />
-      <Button onClick={() => setToValue(0)} text="reset" />
-      <Button onClick={() => setToValue(value + 1)} text="increment" />
+      <h1>Notes</h1>
+      <ul>
+        {notes.map(note =>
+
+          <Note key={note.id} note={note} />
+        )}
+      </ul>
     </div>
   )
 }
-
 
 export default App

@@ -21,7 +21,10 @@ const Button = ({ onClickHandler, text }) => {
 const StatisticLine = ({ text, value }) => {
 
   return (
-    <p>{text} {value}</p>
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
   )
 }
 
@@ -39,15 +42,23 @@ const Statistics = ({ good, neutral, bad }) => {
     )
   }
 
+  // return table wrapper, inside table rows(statistics lines?)
   return (
     <>
       <h1>statistics</h1>
-      <StatisticLine text='good' value={good} />
-      <StatisticLine text='neutral' value={neutral} />
-      <StatisticLine text='bad' value={bad} />
-      <StatisticLine text='all' value={all} />
-      <StatisticLine text='average' value={average} />
-      <StatisticLine text='positive' value={positive} />
+      <table>
+        <tr>
+          <td>Stat</td>
+          <td>Value</td>
+        </tr>
+        <StatisticLine text='good' value={good} />
+        <StatisticLine text='neutral' value={neutral} />
+        <StatisticLine text='bad' value={bad} />
+        <StatisticLine text='all' value={all} />
+        <StatisticLine text='average' value={average} />
+        <StatisticLine text='positive' value={positive} />
+      </table>
+
     </>
   )
 }

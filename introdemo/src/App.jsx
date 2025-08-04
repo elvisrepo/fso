@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import Footer from './components/Footer'
 import Note from './components/Note'
 import noteService from './services/notes'
@@ -13,30 +12,30 @@ const App = () => {
 
   useEffect(() => {
     console.log('effect')
-    
-      noteService
+
+    noteService
       .getAll()
       .then(returnedNote => {
         setNotes(returnedNote)
       })
   }, [])
-  
+
 
   const addNote = (event) => {
     event.preventDefault()
     const noteObject = {
       content: newNote,
       important: Math.random() < 0.5,
-    
+
     }
 
     noteService
       .create(noteObject)
       .then(returnedNote => {
-           setNotes(notes.concat(returnedNote))
-           setNewNote('')
+        setNotes(notes.concat(returnedNote))
+        setNewNote('')
       })
-      
+
 
   }
 
@@ -48,9 +47,9 @@ const App = () => {
 
   }
 
-  
 
-   const toggleImportanceOf = id => {
+
+  const toggleImportanceOf = id => {
     const note = notes.find(n => n.id === id)
     const changedNote = { ...note, important: !note.important }
 
@@ -69,7 +68,7 @@ const App = () => {
       })
   }
 
-  if (!notes){
+  if (!notes) {
     return null
   }
 
@@ -81,10 +80,10 @@ const App = () => {
       <ul>
         {notesToShow.map(note =>
 
-          <Note 
-          key={note.id} 
-          note={note}
-          toggleImportance = {() => toggleImportanceOf(note.id)}
+          <Note
+            key={note.id}
+            note={note}
+            toggleImportance={() => toggleImportanceOf(note.id)}
           />
         )}
       </ul>

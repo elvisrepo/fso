@@ -1,7 +1,8 @@
 POST http://localhost:3001/api/notes/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpc2kxMSIsImlkIjoiNjg5MzlmYzAwMWY3YzMyYTJlMTA1ZWVjIiwiaWF0IjoxNzU0NTU4MjczfQ.EAxKPX67b-eafvWBLg-7F-L4KGnF4-PupB40sZddr_4
 
 {
-    "content": "Postman is good in testing backend",
+    "content": "JWT test",
     "important" : true
 }
